@@ -15,12 +15,25 @@ module.exports = {
     siteUrl: `https://jwamm.com`,
   },
   plugins: [
-    `gatsby-transformer-json`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "@davidrouyer/gatsby-source-custom-api",
       options: {
-        path: `${__dirname}/data/events/`,
-      },
+        url: {
+          development: process.env.JWAMM_PROGRAM_API, // on "gatsby develop"
+          production: process.env.JWAMM_PROGRAM_API // on "gatsby build"
+        },
+        schemas: {
+          events: `
+                  event_id: String
+                  title: String
+                  host: String
+                  description: String
+                  start_time: String
+                  duration_minutes: Int
+                  location: String
+              `
+        }
+      }
     },
     `gatsby-plugin-image`,
     {

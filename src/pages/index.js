@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import { DateTime } from "luxon";
 
@@ -23,7 +23,7 @@ const IndexPage = ({data}) => (
         <b>Our next event is January 20-22, 2023</b>. Everyone is welcome! Here's what's currently planned.
       </p>
       <p>Times listed in {localZone} timezone.</p>
-      {data.allEventsJson.nodes.map((node) => (
+      {data.allEvents.nodes.map((node) => (
         <p className={styles.calendarEntry}>
           {DateTime.fromISO(node.start_time, { zone: "utc" }).toLocal().toLocaleString(DateTime.DATETIME_MED)} - {node.duration_minutes} minutes <br></br>
           Host: <b>{node.host}</b> <br></br>
@@ -44,7 +44,7 @@ export const Head = () => <Seo title="Home" />
 
 export const query = graphql`
   query HomePageQuery {
-    allEventsJson(sort: { start_time: ASC  } ) {
+    allEvents(sort: { start_time: ASC  } ) {
       nodes {
         title
         host
