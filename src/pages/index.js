@@ -7,8 +7,6 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 
-const localZone = DateTime.local().zoneName
-
 const IndexPage = ({data}) => (
   <Layout>
     <div className={styles.textCenter}>
@@ -22,10 +20,10 @@ const IndexPage = ({data}) => (
       <p className={styles.intro}>
         <b>Our next event is January 20-22, 2023</b>. Everyone is welcome! Here's what's currently planned.
       </p>
-      <p>Times listed in {localZone} timezone.</p>
+      <p>Times listed in {DateTime.local().zoneName} timezone.</p>
       {data.allEvents.nodes.map((node) => (
         <p className={styles.calendarEntry}>
-          {DateTime.fromISO(node.start_time, { zone: "utc" }).toLocal().toLocaleString(DateTime.DATETIME_MED)} - {node.duration_minutes} minutes <br></br>
+          {DateTime.fromISO(node.start_time, { zone: "utc" }).toLocal().toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY)} - {node.duration_minutes} minutes <br></br>
           Host: <b>{node.host}</b> <br></br>
           {node.description} <br></br>
           <a href={node.location}>{node.location}</a>
