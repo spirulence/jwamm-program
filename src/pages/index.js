@@ -24,6 +24,7 @@ const IndexPage = ({data}) => (
       {data.allEvents.nodes.map((node) => (
         <p className={styles.calendarEntry}>
           {DateTime.fromISO(node.start_time, { zone: "utc" }).toLocal().toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY)} - {node.duration_minutes} minutes <br></br>
+          {node.title} <br></br>
           Host: <b>{node.host}</b> <br></br>
           {node.description} <br></br>
           <a href={node.location}>{node.location}</a>
