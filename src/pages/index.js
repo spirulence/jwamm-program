@@ -14,11 +14,11 @@ const IndexPage = ({data}) => (
         Welcome to <b>JWAMM!</b>
       </h1>
       <p className={styles.intro}>
-        JWAMM is <b>January Weekend Academy of Music Month</b>. 
-        <br></br>We host an online-only collective upleveling event in January to practice and improve our rapid music creation skills. 
+        JWAMM is <b>June Weekend Academy of Music Month</b>. 
+        <br></br>We host an online-only collective upleveling event in June (and January) to practice and improve our rapid music creation skills. 
       </p>
       <p className={styles.intro}>
-        <b>Our next event is January 20-22, 2023</b>. Everyone is welcome! Here's what's currently planned.
+        <b>Our next event is June 24, 2023</b>. Everyone is welcome! Here's what's currently planned.
       </p>
       <p>Times listed in {DateTime.local().zoneName} timezone.</p>
       {data.allEvents.nodes.map((node) => (
