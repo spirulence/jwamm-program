@@ -31,6 +31,7 @@ module.exports = {
                   start_time: String
                   duration_minutes: Int
                   location: String
+                  password: String
               `
         }
       }
