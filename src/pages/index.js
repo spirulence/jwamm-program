@@ -27,7 +27,8 @@ const IndexPage = ({data}) => (
           {node.title} <br></br>
           Host: <b>{node.host}</b> <br></br>
           {node.description} <br></br>
-          <a href={node.location}>{node.location}</a>
+          <a href={node.location}>{node.location}</a> <br></br>
+          Password: <b>{node.password}</b>
         </p>
       ))}
     </div>
