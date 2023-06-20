@@ -7,15 +7,15 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 
-const IndexPage = ({data}) => (
+const IndexPage = ({ data }) => (
   <Layout>
     <div className={styles.textCenter}>
       <h1>
         Welcome to <b>JWAMM!</b>
       </h1>
       <p className={styles.intro}>
-        JWAMM is <b>June Weekend Academy of Music Month</b>. 
-        <br></br>We host an online-only collective upleveling event in June (and January) to practice and improve our rapid music creation skills. 
+        JWAMM is <b>June Weekend Academy of Music Month</b>.
+        <br></br>We host an online-only collective upleveling event in June (and January) to practice and improve our rapid music creation skills.
       </p>
       <p className={styles.intro}>
         <b>Our next event is June 24, 2023</b>. Everyone is welcome! Here's what's currently planned.
@@ -27,7 +27,8 @@ const IndexPage = ({data}) => (
           {node.title} <br></br>
           Host: <b>{node.host}</b> <br></br>
           {node.description} <br></br>
-          <a href={node.location}>{node.location}</a>
+          <a href={node.location}>{node.location}</a> <br></br>
+          Password: <b>{node.password}</b>
         </p>
       ))}
     </div>
@@ -51,6 +52,7 @@ export const query = graphql`
         start_time
         location
         duration_minutes
+        password
       }
     }
   }
